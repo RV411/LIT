@@ -1,3 +1,4 @@
+// variables
 const carrito =document.querySelector('#carrito');
 const contenedorCarrito =document.querySelector('#contenedor-carrito tbody');
 const vaciarCarritoBtn =document.querySelector('#vaciar. carrito');
@@ -8,6 +9,15 @@ cargarEventListeners();
 function cargarEventListeners() {
     //agregar curso "Agregar al carrito"
     listaCursos.addEventListener('click',agregarCurso);
+
+    //eliminar curso
+    carrito.addEventListener('click',eliminarCurso);
+
+    //vaciar carrito
+    vaciarCarritoBtn.addEventListener('click',()=>{
+        articulosCarrito=[];
+        limpiarHTML();
+    })
 }
 
 // function
@@ -16,6 +26,15 @@ function agregarCurso(e) {
     if(e.target.classList.contains('agregar-carrito')){
         const cursoSeleccionado=e.target.parentElement.parentElement;
         leerDatosCurso(cursoSeleccionado);
+    }
+}
+
+//
+function eliminarCurso(e) {
+    if(e.target.classList.contains('borrar-curso')){
+        const cursoId=e.target.getAttribute('data-id');
+        articulosCarrito=articulosCarrito.filter(curso=> curso.id!==cursoId);
+        carritoHTML();//? iterar sobre el carrito y mostrar su HTML
     }
 }
 
@@ -30,7 +49,19 @@ function leerDatosCurso(curso) {
     }
 
     //Agregar al carrito
-    articulosCarrito=[...articulosCarrito,infoCurso];
+    const exist=articulosCarrito.some(curso=>curso.id===infoCurso.id);
+    if(exist){
+        const cursos=articulosCarrito.map(curso=>{
+            if(curso.id===infoCurso.id){
+                curso.cantidad++;
+                return curso;
+            }else{
+                return curso;
+            }
+        });
+    }else{
+        articulosCarrito=[...articulosCarrito,infoCurso];
+    }
 
     console.log(infoCurso);
 
@@ -51,7 +82,11 @@ function carritoHTML(){
         <td>${precio}</td>
         <td>${cantidad}</td>
         <td>
-            <a href="#" class="borrar-curso" data-id="${id}">x</a>
+            <a href="#" class="borrar-curso" data-id="${id}">x</a>{
+
+            }else{
+
+            }
         </td>
         `;
         contenedorCarrito.appendChild(row);
