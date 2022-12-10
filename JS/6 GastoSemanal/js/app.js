@@ -146,14 +146,12 @@ function preguntarPresupuesto() {
 
 function agregarGastos(e) {
     e.preventDefault();
-
     const nombre=document.querySelector('#gasto').value;
     const cantidad=Number(document.querySelector('#cantidad').value);
 
     if(nombre==='' || cantidad===''){
         ui.imprimirAlerta('Ambos campos son obligatorios', 'error');
         return;
-
     }else if(cantidad<=0 || isNaN(cantidad)){
         ui.imprimirAlerta('Cantidad no validad','error');
         return;
@@ -165,7 +163,6 @@ function agregarGastos(e) {
     presupuesto.nuevoGasto(gasto);
 
     ui.imprimirAlerta('Gasto agregado Correctamente');
-
 
     const {gastos,restante}=presupuesto;
     ui.mostrarGastos(gastos);
