@@ -11,21 +11,6 @@
 > npm init @open-wc
 
 
-# IndexDB
-
-- localStorage 5MB
-- IndexDB en 50MB pregunta por permisos para guardar mas
-- No password o Credit Card
-> - crm
-> - transaccion
-> - Object
-> - guarda los datos
-
-
-
-
-
-
 # Libraries
 
 > # MomentJS
