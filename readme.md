@@ -47,6 +47,23 @@
 > - crear .babelrc
 > - instalar  npm i --save-dev @babel/preset-env
 
+># Cypress
+
+- npm init
+- npm i --save-dev cypress
+
+> npx cypress open
+> npx cypress run
+
+>  ///<reference types="cypress"/> 
+> se puede importar mas facil
+
+
+# poner en cypress algo que no sea tan comun
+classes y etiquetas no
+
+> https://docs.cypress.io/guides/references/best-practices
+> cy.get('[data-cy="titulo-proyecto"]').should('exist');
 
 
 
