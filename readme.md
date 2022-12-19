@@ -55,6 +55,14 @@
 > npx cypress open
 > npx cypress run
 
+con el run se modifica el 
+> "videoCompression": 0     mejor calidad
+> "videoCompression": 51    peor calidad
+
+cuando llegue a una parte del codigo, toma una captura
+cy.screenshot();
+
+
 >  ///<reference types="cypress"/> 
 > se puede importar mas facil
 
@@ -65,6 +73,9 @@ classes y etiquetas no
 > https://docs.cypress.io/guides/references/best-practices
 > cy.get('[data-cy="titulo-proyecto"]').should('exist');
 
+
+En el JS poner
+> btnELiminar.dataset.cy='btn-eliminar';
 
 
 
